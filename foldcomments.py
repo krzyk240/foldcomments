@@ -1,8 +1,6 @@
 from sublime import Region, Settings, load_settings
 import sublime_plugin
 
-settings = load_settings("foldcomments.sublime-settings")
-
 
 def is_multi_line(view, region):
     return len(view.lines(region)) > 1
@@ -11,6 +9,7 @@ def is_multi_line(view, region):
 class CommentsMixin:
 
     def post_process_comments(self, comments):
+        settings = load_settings("foldcomments.sublime-settings")
         """ Apply settings """
         view = self.view
 
